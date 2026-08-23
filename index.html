@@ -1005,6 +1005,13 @@ document.body.addEventListener('touchstart', function autoFsTouch() {
     document.body.removeEventListener('touchstart', autoFsTouch);
 }, { once: true });
 
+</script>
+<div id="statusbar">
+    <div class="status-left">收录总人数：<span class="count-num" id="totalPeople">5612</span> 人</div>
+    <div class="status-center">访问次数：<span class="count-num" id="visitCount">--</span></div>
+    <div class="status-right">V1.0　2026.8.23</div>
+</div>
+<script>
 // Visit counter using countapi.mileshilliard.com (works on GitHub Pages, cross-user)
 (function() {
     const COUNTER_KEY = 'gufeng-shi-zupu-visits';
@@ -1028,13 +1035,6 @@ document.body.addEventListener('touchstart', function autoFsTouch() {
             el.textContent = n;
         });
 })();
-
 </script>
-<div id="statusbar">
-    <div class="status-left">收录总人数：<span class="count-num" id="totalPeople">5612</span> 人</div>
-    <div class="status-center">访问次数：<span class="count-num" id="visitCount">--</span></div>
-    <div class="status-right">V1.0　2026.8.23</div>
-</div>
-
 </body>
 </html>

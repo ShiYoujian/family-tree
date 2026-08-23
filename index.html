@@ -1005,25 +1005,23 @@ document.body.addEventListener('touchstart', function autoFsTouch() {
     document.body.removeEventListener('touchstart', autoFsTouch);
 }, { once: true });
 
-// Visit counter using countapi.xyz (works on GitHub Pages, cross-user)
+// Visit counter using countapi.mileshilliard.com (works on GitHub Pages, cross-user)
 (function() {
-    const NAMESPACE = 'gufeng-shi-zupu';
-    const KEY = 'visits';
+    const COUNTER_KEY = 'gufeng-shi-zupu-visits';
     const el = document.getElementById('visitCount');
     if (!el) return;
 
-    // Use countapi.xyz for cross-user visit counting
-    fetch('https://api.countapi.xyz/hit/' + NAMESPACE + '/' + KEY)
+    fetch('https://countapi.mileshilliard.com/api/v1/hit/' + COUNTER_KEY)
         .then(function(r) { return r.json(); })
         .then(function(data) {
-            if (data && typeof data.value === 'number') {
-                el.textContent = data.value.toLocaleString();
+            if (data && data.value !== undefined) {
+                el.textContent = parseInt(data.value, 10).toLocaleString();
             } else {
                 el.textContent = '--';
             }
         })
         .catch(function() {
-            // Fallback to local count if countapi is unavailable
+            // Fallback to local count if API is unavailable
             const localKey = 'gufeng_shi_visit_local';
             var n = parseInt(localStorage.getItem(localKey) || '0', 10) + 1;
             localStorage.setItem(localKey, String(n));
